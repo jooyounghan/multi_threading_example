@@ -1,2 +1,5 @@
 ﻿  Source.cpp
-  multi_thread_example.vcxproj -> C:\Users\Younghan\Desktop\Project\multi_thread_example\multi_thread_example\Debug\multi_thread_example.exe
+C:\Users\Younghan\Desktop\Project\multi_thread_example\multi_thread_example\multi_thread_example\dot_product.h(118,78): error C3493: 'vt1' cannot be implicitly captured because no default capture mode has been specified
+C:\Users\Younghan\Desktop\Project\multi_thread_example\multi_thread_example\multi_thread_example\dot_product.h(118,78): error C3493: 'vt2' cannot be implicitly captured because no default capture mode has been specified
+C:\Users\Younghan\Desktop\Project\multi_thread_example\multi_thread_example\multi_thread_example\dot_product.h(118,78): error C3493: 'i' cannot be implicitly captured because no default capture mode has been specified
+C:\Users\Younghan\Desktop\Project\multi_thread_example\multi_thread_example\multi_thread_example\dot_product.h(118,78): error C3493: 'num_data' cannot be implicitly captured because no default capture mode has been specified

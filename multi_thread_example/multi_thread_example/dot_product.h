@@ -89,47 +89,6 @@ void using_future_async(const std::vector<int>& vt1, const std::vector<int>& vt2
 	{
 		result += result_vector[i].get();
 	}
-	tm.end();
-
-	std::cout << "result : " << result << std::endl;
-	std::cout << "time : " << tm.get_time() << std::endl;
-}
-
-void using_thead_future_async(const std::vector<int>& vt1, const std::vector<int>& vt2, const int& thread_num = std::thread::hardware_concurrency() / 2)
-{
-	std::cout << "with using and " << thread_num << " " << "thread, async and future" << std::endl;
-	std::vector<std::promise<unsigned long long>> promise_vector;
-	std::vector<std::future<unsigned long long>> future_vector;
-	std::vector<std::thread> thread_vector;
-	promise_vector.resize(thread_num);
-	future_vector.resize(thread_num);
-	thread_vector.resize(thread_num);
-	for (int i = 0; i < thread_num; i += 1)
-	{
-		future_vector[i] = promise_vector[i].get_future();
-	}
-
-	int num_data = vt1.size() / thread_num;
-	timer tm;
-	tm.start();
-
-	for (int i = 0; i < thread_num; i += 1)
-	{
-		thread_vector[i] = std::thread([](std::promise<unsigned long long>&& prom) {prom.set_value(local_sum_thread_future_async(vt1, vt2, (i * (num_data)), ((i + 1) * (num_data)))); }, std::move(promise_vector[i]));
-	}
-
-	for (int i = 0; i < thread_num; i += 1)
-	{
-		thread_vector[i].join();
-	}
-	unsigned long long result = 0;
-	for (int i = 0; i < thread_num; i += 1)
-	{
-		result += future_vector[i].get();
-	}
-	tm.end();
-
-	tm.end();
 
 	std::cout << "result : " << result << std::endl;
 	std::cout << "time : " << tm.get_time() << std::endl;

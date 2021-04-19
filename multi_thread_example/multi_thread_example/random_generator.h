@@ -50,13 +50,3 @@ unsigned long long local_sum_future_async(const std::vector<int>& vt1, const std
 	}
 	return result;
 }
-
-unsigned long long local_sum_thread_future_async(const std::vector<int>& vt1, const std::vector<int>& vt2, const int& start_num, const int& end_num)
-{
-	unsigned long long result = 0;
-	for (int i = start_num; i < end_num; i += 1)
-	{
-		result += vt1[i] * vt2[i];
-	}
-	return result;
-}
